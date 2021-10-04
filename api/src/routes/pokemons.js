@@ -76,7 +76,7 @@ app.post('/', async function (req, res)
         })
 
         await createdPoke.setTypes(type);
-        //aca le debo pasar un int con el tipo 
+        //aca le debo pasar un int, o un array con ints con el tipo 
         res.json(createdPoke)
     } 
     catch (error) {
