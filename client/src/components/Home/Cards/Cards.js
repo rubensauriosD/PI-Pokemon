@@ -1,7 +1,7 @@
 import {DivStyle ,DivStyle2} from "./style";
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect,useState} from 'react';
-import {getPokemons, getPokmeonsName, filtrados} from '../../../actions/actions'
+import {getPokemons, getPokmeonsName, filtrados, generico} from '../../../actions/actions'
 import Card from "./Card/Card";
 
 function Cards()
@@ -18,10 +18,17 @@ function Cards()
     const indexOfLastPost = currentPage * pokesXPag;//multiplico la pagina actual por los jegos por pag 
     const indexOfFirstPost = indexOfLastPost - pokesXPag;//resto el indexLAst a los jegos por pag 
 
+    // var current3 = [];
     if (filt.length >= 1) 
     {
         var current2 = filt.slice(indexOfFirstPost, indexOfLastPost);
     } 
+    // else if(current3)
+    // {
+    //     // var current3 = pokeName.slice(indexOfFirstPost, indexOfLastPost);
+    //     current3.shift()
+    //     current3.push(pokeName)
+    // }
     else 
     {
         var current = pokemones.slice(indexOfFirstPost, indexOfLastPost);
@@ -52,7 +59,7 @@ function Cards()
                 <input onChange={(e)=> handleChange(e)} type='text'/>
                 <button onClick={() => {
                     dispatch(getPokmeonsName(name))
-                    // dispatch(filtrados(pokeName));
+                    dispatch(filtrados(pokeName));
                 }}>Search 🔍</button>
                 <button onClick={() => {
                     dispatch(filtrados(pokemones));
@@ -61,15 +68,23 @@ function Cards()
 
             <DivStyle>
             {   
-                pokeName.length ? pokeName.map((pk,i) => {
-                    return <Card
-                    key={i} 
-                    name={pk.name}
-                    image={pk.image}
-                    tipos={pk.tipos}
-                    id={pk.id}/>
-                })
-                :
+                // pokeName ? 
+                //     <Card
+                //     key={pokeName.id} 
+                //     name={pokeName.name}
+                //     image={pokeName.image}
+                //     tipos={pokeName.tipos}
+                //     id={pokeName.id}/>
+                // :
+                // current3.length >= 1 ? current3.map((pk,i) => {
+                //     return <Card
+                //     key={i} 
+                //     name={pk.name}
+                //     image={pk.image}
+                //     tipos={pk.tipos}
+                //     id={pk.id}/>
+                // })
+                // :
                 filt.length >= 1 ? current2.map((pk,i) => {
                     return <Card
                     key={i} 

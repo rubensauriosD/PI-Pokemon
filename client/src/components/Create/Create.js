@@ -74,8 +74,8 @@ function Create(){
             <form onSubmit={(e)=> handleSubmit(e)}>
                 <label>Name</label>
                 <input type='text' name='name' onChange={(e) => handleChange(e)} className={errors.name && 'danger'} value={inputs.name} required/>
-                {errors.name && (
-                <p className="danger">{errors.name}</p>)}
+                {/* {errors.name && (
+                <p className="danger">{errors.name}</p>)} */}
 
                 <label>Hp ( life )</label>
                 <input type='number' name='hp' onChange={(e) => handleChange(e)}/>

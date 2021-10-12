@@ -27,7 +27,7 @@ app.get('/', async function (req, res)
             if(pokemonName === undefined) {
                 return res.status(404).send('Pokemon not found')
             } else {
-                return res.status(200).json(pokemonName)
+                return res.status(200).json([pokemonName])
             }
         } 
         catch (error) {
