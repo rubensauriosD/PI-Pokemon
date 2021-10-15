@@ -1,7 +1,7 @@
 import {DivStyle ,DivStyle2} from "./style";
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect,useState} from 'react';
-import {getPokemons, getPokmeonsName, filtrados, generico} from '../../../actions/actions'
+import {getPokemons, getPokmeonsName, filtrados} from '../../../actions/actions'
 import Card from "./Card/Card";
 
 function Cards()
@@ -91,7 +91,8 @@ function Cards()
                     name={pk.name}
                     image={pk.image}
                     tipos={pk.tipos}
-                    id={pk.id}/>
+                    id={pk.id}
+                    special={pk.specialAtack}/>
                 })
                 :
                 current?.map((pk,i) => {
@@ -100,7 +101,8 @@ function Cards()
                     name={pk.name}
                     image={pk.image}
                     tipos={pk.tipos}
-                    id={pk.id}/>
+                    id={pk.id}
+                    special={pk.specialAtack}/>
                 })
             }
             </DivStyle>

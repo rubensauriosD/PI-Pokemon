@@ -1,7 +1,8 @@
 import DivStyle from './style'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react';
-import {getTypes, generico, filtrados} from '../../../actions/actions'
+import {getTypes, filtrados} from '../../../actions/actions'
+
 
 function Filter(){
     var types = useSelector(state => state.types);
@@ -36,13 +37,14 @@ function Filter(){
 
         if (e.target.value === 'exist') 
         {
-            for (let index = 0; index < creados.length; index++) 
-            {
-                existentes.shift()
-            }
+            // for (let index = 0; index < creados.length; index++) 
+            // {
+            //     existentes.shift()
+            // }
             dispatch(filtrados(existentes))
         }
-        else{
+        else
+        { 
             dispatch(filtrados(creados))
         }
     }

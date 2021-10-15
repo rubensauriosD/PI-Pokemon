@@ -5,6 +5,7 @@ const DivStyle = styled.div
 color:black;
 text-shadow: 2px 2px white;
 text-decoration:none;
+
 .conteiner{
     display:flex;
     flex-direction:column;

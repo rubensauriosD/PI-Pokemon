@@ -1,6 +1,6 @@
 import {DivStyle} from "./style";
 
-function Pk({id, name, tipos, image, hp, attack, defense, speed, height, weight}) 
+function Pk({id, name, tipos, image, hp, attack, defense, speed, height, weight,special }) 
 {
     return(
         <DivStyle>
@@ -38,6 +38,9 @@ function Pk({id, name, tipos, image, hp, attack, defense, speed, height, weight}
 
                 <h2>Weight</h2>
                 <p>{weight}</p>
+
+                <h2>Special Attack</h2>
+                <p>{special}</p>
                 </div>
             </div>
         </DivStyle>

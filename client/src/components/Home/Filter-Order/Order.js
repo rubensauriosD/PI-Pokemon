@@ -9,6 +9,7 @@ function Order(){
     function order(e) {
         var names = pokes.map((m) => m.name);
         var attack = pokes.map((m) => m.attack);
+        var specialA = pokes.map((m) => m.specialAtack);
         var o = [];
 
         switch (e.target.value) {
@@ -66,9 +67,40 @@ function Order(){
 
                 o = o.filter((e, i) => o.indexOf(e)=== i);
                 pokes = [...o]
+                console.log(o)
                 dispatch(generico(pokes))
                 break;
-                
+
+            case "special+":
+                specialA = specialA.sort((a,b) => b - a);
+                specialA.forEach((f) => {
+                    pokes.forEach((element) => {
+                        if(f === element.specialAtack){
+                            o.push(element);
+                        }
+                    });
+                });
+
+                o = o.filter((e, i) => o.indexOf(e)=== i);
+                pokes = [...o]
+                console.log(o)
+                dispatch(generico(o))
+                break;
+
+            case "special-":
+                specialA = specialA.sort((a,b) => a - b);
+                specialA.forEach((f) => {
+                    pokes.forEach((element) => {
+                        if(f === element.specialAtack){
+                            o.push(element);
+                        }
+                    });
+                });
+
+                o = o.filter((e, i) => o.indexOf(e)=== i);
+                pokes = [...o]
+                dispatch(generico(pokes))
+                break;
         }
     }
 
@@ -80,6 +112,8 @@ function Order(){
             <option value="desc">Descending</option>
             <option value="attack+">Higher Attack 📈 </option>
             <option value="attack-">Lower Attack 📉</option>
+            <option value="special+">Higher Special Attack 📈 </option>
+            <option value="special-">Lower Special Attack 📉</option>
             </select>
         </DivStyle>
     )

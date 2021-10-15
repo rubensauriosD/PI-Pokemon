@@ -108,7 +108,8 @@ const getPokemonsApi = async () => {
                         height: e.height,
                         weight: e.weight,
                         image: e.sprites.other.dream_world.front_default,
-                        tipos: e.types.length < 2 ? [{name: e.types[0].type.name}] : [{name: e.types[0].type.name}, {name: e.types[1].type.name}]
+                        tipos: e.types.length < 2 ? [{name: e.types[0].type.name}] : [{name: e.types[0].type.name}, {name: e.types[1].type.name}],
+                        specialAtack: e.stats[3].base_stat
                     })
                 })
                 return info;
@@ -118,7 +119,19 @@ const getPokemonsApi = async () => {
         console.log(error)
     }
 }
-
+// const response = await Promise.all(totalpokemones.map(async pokemon => {
+//     let url = await axios.get(pokemon.url)
+//     let type = url.data.types.map(el => el.type.name)
+//     return  {
+//         name: url.data.name.charAt(0).toUpperCase() + url.data.name.slice(1),
+//         image: url.data.sprites.other.dream_world.front_default,
+//         id: url.data.id, 
+//         types: type,
+//         attack: url.data.stats[1].base_stat,
+        
+//     }
+    
+// })); 
 const getPokemonsDb = async () => {
     try {
         return await Pokemon.findAll({

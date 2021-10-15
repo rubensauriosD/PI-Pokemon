@@ -1,7 +1,7 @@
 import DivStyle from './style'
 import {NavLink} from 'react-router-dom';
 
-function Card({id, name, tipos, image}) {
+function Card({id, name, tipos, image, special}) {
     return(
         <DivStyle>
             <div className='conteiner'>
@@ -19,6 +19,8 @@ function Card({id, name, tipos, image}) {
                             return <li key={id}>{p.name}</li>
                         })
                     }
+                    <h4>Special Attack</h4>
+                    <h3>{special}</h3>
                 </ul>
             </div>
         </DivStyle>

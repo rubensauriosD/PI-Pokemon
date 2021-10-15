@@ -31,7 +31,8 @@ function Pokemon(){
                 defense={poke[0].defense}      
                 speed={poke[0].speed}
                 height={poke[0].height}
-                weight={poke[0].weight}/>
+                weight={poke[0].weight}
+                special={poke[0].specialAtack}/>
                 // :
                 // poke.length &&  <Pk key={poke.id}
                 // name={poke.name}
